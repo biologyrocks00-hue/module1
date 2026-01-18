@@ -188,7 +188,7 @@
               M-phase).
             </li>
             <li class="list-group-item">
-              Describe the specific events that occur in $G_1$, $S$, and $G_2$
+              Describe the specific events that occur in G_1, S, and G_2
               phases.
             </li>
             <li class="list-group-item">
@@ -250,16 +250,16 @@
           </p>
           <ul>
             <li>
-              <strong>$G_1$ Phase (Gap 1):</strong> The cell grows physically
+              <strong>G_1 Phase (Gap 1):</strong> The cell grows physically
               larger, copies organelles, and makes the molecular building blocks
               it will need later.
             </li>
             <li>
-              <strong>$S$ Phase (Synthesis):</strong> The cell synthesizes a
+              <strong>S Phase (Synthesis):</strong> The cell synthesizes a
               complete copy of the DNA in its nucleus.
             </li>
             <li>
-              <strong>$G_2$ Phase (Gap 2):</strong> Further growth and protein
+              <strong>G_2 Phase (Gap 2):</strong> Further growth and protein
               synthesis; the cell "double-checks" the duplicated chromosomes for
               errors.
             </li>
@@ -513,8 +513,8 @@
                       Draw a large circle on a piece of paper.
                     </li>
                     <li class="list-group-item">
-                      Divide the circle into sections representing $G_1$, $S$,
-                      $G_2$, and Mitosis (remember that Interphase should take
+                      Divide the circle into sections representing G_1, S,
+                      G_2, and Mitosis (remember that Interphase should take
                       up most of the circle).
                     </li>
                     <li class="list-group-item">
@@ -546,7 +546,7 @@
                       value="A"
                       id="q1a"
                     />
-                    <label class="form-check-label" for="q1a">$G_1$ </label>
+                    <label class="form-check-label" for="q1a">G_1 </label>
                   </div>
                   <div class="form-check">
                     <input
@@ -556,7 +556,7 @@
                       value="B"
                       id="q1b"
                     />
-                    <label class="form-check-label" for="q1b">$S$</label>
+                    <label class="form-check-label" for="q1b">S</label>
                   </div>
                   <div class="form-check">
                     <input
@@ -566,7 +566,7 @@
                       value="C"
                       id="q1c"
                     />
-                    <label class="form-check-label" for="q1c">$G_2$</label>
+                    <label class="form-check-label" for="q1c">G_2</label>
                   </div>
                   <div class="form-check">
                     <input
@@ -583,7 +583,7 @@
                 <!-- Q2 -->
                 <div class="mb-3">
                   <label class="form-label fw-bold"
-                    >If a cell has 10 chromosomes at the start of $G_1$, how
+                    >If a cell has 10 chromosomes at the start of G_1, how
                     many chromosomes will it have after the S-phase?
                   </label>
                   <div class="form-check">
@@ -754,7 +754,7 @@
           } else {
             input.classList.remove("is-valid");
             input.classList.add("is-invalid");
-            feedback.innerHTML = `❌ Incorrect. ${questions[id].reason}`;
+            feedback.innerHTML = `❌ Incorrect. {questions[id].reason}`;
             feedback.className = "invalid-feedback d-block";
           }
         });
@@ -762,7 +762,7 @@
     </script>
 
     <script>
-      $(document).ready(function () {
+      (document).ready(function () {
         const correctAns = {
           ans1: "B",
           ans2: "B",
@@ -770,23 +770,23 @@
         };
         const multipleQues = {
           q1: "Which phase involves the actual copying of DNA?",
-          q2: "If a cell has 10 chromosomes at the start of $G_1$, how many chromosomes will it have after the S-phase?",
+          q2: "If a cell has 10 chromosomes at the start of G_1, how many chromosomes will it have after the S-phase?",
           q3: "The division of the cytoplasm is called:",
         };
 
-        $("#submitExam").click(function () {
+        ("#submitExam").click(function () {
           let organelleResults = [];
           let organelleScore = 0;
           let totalOrganelleItems = 0;
 
           const mAnswers = {
-            m1: $('input[name="q1"]:checked').val() || "No answer",
-            m2: $('input[name="q2"]:checked').val() || "No answer",
-            m3: $('input[name="q3"]:checked').val() || "No answer",
+            m1: ('input[name="q1"]:checked').val() || "No answer",
+            m2: ('input[name="q2"]:checked').val() || "No answer",
+            m3: ('input[name="q3"]:checked').val() || "No answer",
           };
 
-          const name = $('input[name="student_name"]').val();
-          const grade_n_section = $('input[name="grade_n_section"]').val();
+          const name = ('input[name="student_name"]').val();
+          const grade_n_section = ('input[name="grade_n_section"]').val();
 
           /* =======================
          CREATE PDF
@@ -812,8 +812,8 @@
           doc.setFontSize(12);
           doc.setTextColor(0);
 
-          doc.text(`Name: ${name}`, 20, 20);
-          doc.text(`Grade and Section: ${grade_n_section}`, 20, 26);
+          doc.text(`Name: {name}`, 20, 20);
+          doc.text(`Grade and Section: {grade_n_section}`, 20, 26);
 
           const today = new Date();
           const formattedDate = today.toLocaleDateString("en-US", {
@@ -822,7 +822,7 @@
             day: "numeric",
           });
 
-          doc.text(`Date: ${formattedDate}`, 130, 20); // =======================
+          doc.text(`Date: {formattedDate}`, 130, 20); // =======================
           // PERFORMANCE TASK CARD
           // =======================
 
@@ -897,7 +897,7 @@
             // Question
             doc.setFont("helvetica", "bold");
             doc.setTextColor(0);
-            const qText = doc.splitTextToSize(`${i}. ${multipleQues[q]}`, 180);
+            const qText = doc.splitTextToSize(`{i}. {multipleQues[q]}`, 180);
             doc.text(qText, 14, y);
             y += qText.length * 6;
 
@@ -905,7 +905,7 @@
             checkPageBreak(10);
             doc.setFont("helvetica", "normal");
             doc.setTextColor(0, 0, 128);
-            doc.text(`Your answer: ${mAnswers[mAns]}`, 16, y);
+            doc.text(`Your answer: {mAnswers[mAns]}`, 16, y);
             y += 5;
 
             // Correct answer
@@ -915,7 +915,7 @@
               : correctAns[cAns];
 
             doc.setTextColor(0, 128, 0);
-            doc.text(`Correct answer: ${correctText}`, 16, y);
+            doc.text(`Correct answer: {correctText}`, 16, y);
             y += 5;
 
             // Check correctness
@@ -965,7 +965,7 @@
           doc.setFont("helvetica", "bold");
           doc.setFontSize(12);
           doc.setTextColor(255, 0, 0);
-          doc.text(`Score: ${score1} / ${totalQuestions1}`, 14, y);
+          doc.text(`Score: {score1} / {totalQuestions1}`, 14, y);
           // Separator
           doc.setDrawColor(150);
           doc.line(14, y + 6, 196, y + 6);
@@ -976,7 +976,7 @@
          SAVE & CLOSE
       ======================= */
           doc.save("Lesson 5.pdf");
-          $("#examModal").modal("hide");
+          ("#examModal").modal("hide");
         });
       });
     </script>
