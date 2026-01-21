@@ -1802,89 +1802,6 @@
     </script>
 
     <script>
-      $("#generateCertificate").click(function () {
-        const name = $('input[name="student_name"]').val();
-        const grade = $('input[name="grade_n_section"]').val();
-
-        const doc = new window.jspdf.jsPDF("p", "mm", "a4");
-
-        let y = 20;
-
-        /* ======================
-       FEEDBACK SECTION (TOP)
-    ====================== */
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(16);
-        doc.text("Student Feedback Summary", 105, y, { align: "center" });
-
-        y += 12;
-        doc.setFontSize(12);
-        doc.setFont("helvetica", "normal");
-
-        doc.text(`Overall Module Quality: ${ratings.quality} / 5`, 105, y, {
-          align: "center",
-        });
-
-        y += 8;
-        doc.text(`Technology Ease of Use: ${ratings.technology} / 5`, 105, y, {
-          align: "center",
-        });
-
-        y += 8;
-        doc.text(`Likelihood to Recommend: ${ratings.recommend} / 5`, 105, y, {
-          align: "center",
-        });
-
-        /* ======================
-       DIVIDER
-    ====================== */
-        y += 15;
-        doc.setLineWidth(0.5);
-        doc.line(20, y, 190, y);
-
-        y += 18;
-
-        /* ======================
-       CERTIFICATE SECTION
-    ====================== */
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(22);
-        doc.text("CERTIFICATE OF COMPLETION", 105, y, { align: "center" });
-
-        y += 16;
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "normal");
-        doc.text("This certifies that", 105, y, { align: "center" });
-
-        y += 10;
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(18);
-        doc.text(name, 105, y, { align: "center" });
-
-        y += 12;
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(14);
-        doc.text("has successfully completed", 105, y, { align: "center" });
-
-        y += 10;
-        doc.setFont("helvetica", "bold");
-        doc.text("Lesson 5: Cell Cycle", 105, y, { align: "center" });
-
-        y += 12;
-        doc.setFont("helvetica", "normal");
-        doc.text(`Grade & Section: ${grade}`, 105, y, { align: "center" });
-
-        y += 10;
-        doc.text(`Date: ${new Date().toLocaleDateString()}`, 105, y, {
-          align: "center",
-        });
-
-        doc.save("Lesson 5 - Certificate & Feedback.pdf");
-        $("#feedbackModal").modal("hide");
-      });
-    </script>
-
-    <script>
       function generatePDF() {
         const element = document.getElementById("certificatePDF");
         element.style.display = "block";
@@ -1907,3 +1824,4 @@
     </script>
   </body>
 </html>
+
