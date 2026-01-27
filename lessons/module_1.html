@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Science at your Fingertips</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- jsPDF (UMD) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+      .author-img {
+        width: 160px;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 10%;
+      }
+
+      .autobio {
+        display: none;
+        margin-top: 20px;
+      }
+  .modal-backdrop.show {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(20px); /* Safari */
+    background-color: rgba(0, 0, 0, 00.8);
+  }
+</style>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <style>
+    .masonry {
+      column-count: 3;
+      column-gap: 1.5rem;
+    }
+
+    .masonry .card {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 992px) {
+      .masonry {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .masonry {
+        column-count: 1;
+      }
+    }
+  </style>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-dark text-white sticky-top z-1"
+      data-aos="fade-down"
+      data-aos-duration="500"
+    >
+      <div class="container-fluid">
+        <h3 class="text-uppercase px-md-5">Module 1 | Cell: The Basic Unit of Life</h3>
+      </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container-fluid mt-3 px-md-5" data-aos="zoom-in" data-aos-duration="500">
+      <div class="row">
+        <h2
+          class="text-center text-uppercase fw-bolder"
+          data-aos="zoom-in"
+          data-aos-duration="500"
+          data-aos-delay="500"
+        >
+          Welcome to Your Science Learning Journey
+        </h2>
+        <div class="py-2">
+          <p
+            class="font-monospace px-md-5 mx-md-3"
+            style="text-align: justify"
+            data-aos="zoom-in"
+            data-aos-duration="500"
+            data-aos-delay="600"
+          >
+            Welcome to this innovative science learning module—a digitized
+            instructional resource designed to bridge the gap between classroom
+            theory and real-world application. By integrating Quick Response
+            (QR) technology, this module provides seamless access to interactive
+            lectures, detailed illustrations, and digital assessments. Our
+            automated system ensures that students receive immediate quiz
+            results and feedback, delivered directly to their devices to foster
+            an efficient and independent learning environment.
+          </p>
+          <p
+            class="font-monospace px-md-5 mx-md-3"
+            style="text-align: justify"
+            data-aos="zoom-in"
+            data-aos-duration="500"
+            data-aos-delay="700"
+          >
+            This module is designed to transform the way you interact with
+            biological concepts. Rather than just reading from a textbook, you
+            will engage with a digital-first approach to understanding the
+            fundamental building blocks of life: Plant and Animal Cells.
+          </p>
+          <p
+            class="font-monospace px-md-5 mx-md-3"
+            style="text-align: justify"
+            data-aos="zoom-in"
+            data-aos-duration="500"
+            data-aos-delay="800"
+          >
+            By integrating modern technology with traditional biology, we aim to
+            make the microscopic world visible, interactive, and immediate.
+          </p>
+        </div>
+      </div>
+      <div class="row g-3 px-md-5 mx-md-5">
+        <!-- Column 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div
+            class="accordion"
+            id="accordionCol1"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bolder collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#topic1"
+                >
+                  What to Expect
+                </button>
+              </h2>
+              <div
+                id="topic1"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionCol1"
+              >
+                <div class="accordion-body" style="text-align: justify">
+                  <p>
+                    In this module, we dive deep into the structures that power
+                    living organisms. You will explore the intricate
+                    similarities and the distinct differences between plant and
+                    animal cells, from the rigid walls of the former to the
+                    flexible membranes of the latter.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div
+            class="accordion"
+            id="accordionCol2"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bolder collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#topic2"
+                >
+                  A Streamlined Digital Experience
+                </button>
+              </h2>
+              <div
+                id="topic2"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionCol2"
+              >
+                <div class="accordion-body" style="text-align: justify">
+                  To ensure you are tracking your progress in real-time, this
+                  module is hosted on a dedicated web platform featuring:
+                  <ul>
+                    <li>
+                      Initial Assessment: You will begin with a Pre-test on the
+                      website to gauge your current knowledge and identify areas
+                      for growth.
+                    </li>
+                    <li>
+                      Interactive Learning: As you move through the modules on
+                      cellular organelles and functions, you will encounter
+                      Topical Quizzes designed to reinforce key concepts.
+                    </li>
+                    <li>
+                      Instant Feedback: No more waiting for results. Your scores
+                      will be released directly to you immediately after
+                      submission, allowing you to reflect on your performance
+                      and master the content at your own pace.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div
+            class="accordion"
+            id="accordionCol3"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button fw-bolder collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#topic3"
+                >
+                  Learning Objectives
+                </button>
+              </h2>
+              <div
+                id="topic3"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionCol3"
+              >
+                <div class="accordion-body">
+                  By the end of this module, you should be able to:
+                  <ul class="list-group-numbered">
+                    <li class="list-group-item">
+                      Identify the primary organelles within both plant and
+                      animal cells.
+                    </li>
+                    <li class="list-group-item">
+                      Compare and contrast the structural differences between
+                      these two cell types.m
+                    </li>
+                    <li class="list-group-item">
+                      Utilize digital assessment tools to monitor and improve
+                      your own learning outcomes.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="px-md-5 mx-md-5" />
+      <!-- Module 1 -->
+<div class="px-md-5 py-md-2 my-md-2 pt-3">
+
+      <h3 class="text-primary ">
+        What this Module is About?
+      </h3>
+
+      <!-- Primary Card -->
+      <div class="container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <div class="card bg-success-subtle border-0 shadow-lg h-100 rounded-4">
+              <div class="card-body">
+                <h5 class="card-title fw-bolder text-uppercase">Introduction</h5>
+                <p class="card-text text-muted" style="text-align: justify;">
+                  This module is designed to build a foundational understanding
+                  of cellular biology. By exploring the structures and processes
+                  that sustain life, learners will master the core principles
+                  governing the microscopic world.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="card bg-success-subtle border-0 shadow-lg h-100 rounded-4">
+              <div class="card-body">
+                <h5 class="card-title fw-bolder text-uppercase">Learning Objectives</h5>
+                <p class="card-text text-muted" style="text-align: justify;">
+                  Through hands-on activities and conceptual exploration, you will gain proficiency in:
+                </p>
+                  <ul>
+                    <li><strong>Cell Theory:</strong> Its history and fundamental tenets.</li>
+                    <li><strong>Structural Biology:</strong> Comparing prokaryotic and eukaryotic systems.</li>
+                    <li><strong>Cellular Dynamics:</strong> Understanding the cell cycle and transport mechanisms.</li>
+                    <li><strong>Biochemistry:</strong> The vital role of biological molecules and enzymes.</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <div class="card bg-success-subtle border-0 shadow-lg h-100 rounded-4">
+              <div class="card-body">
+                <h5 class="card-title fw-bolder text-uppercase">Curriculum Roadmap</h5>
+                  <ul>
+                    <li class="py-2"><strong>Module 2:</strong> Cell Theory</li>
+                    <li class="py-2"><strong>Module 3:</strong> Cell Structure and Functions</li>
+                    <li class="py-2"><strong>Module 4:</strong> Prokaryotic vs. Eukaryotic Cells</li>
+                    <li class="py-2"><strong>Module 5:</strong> Cell Types and Cell Modifications</li>
+                    <li class="py-2"><strong>Module 6:</strong> Cell Cycle</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-4">
+  <fieldset class="border rounded-3 p-4 position-relative">
+    <legend class="float-none w-auto px-3 fw-semibold">
+      Key Concept to Remember
+    </legend>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Cell Theory</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            All living things are made of cells; the cell is the basic unit of life; all cells come from pre-existing cells.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Pro vs. Eu</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            <strong>Prokaryotes</strong> (like bacteria) lack a nucleus; <strong>Eukaryotes</strong> (like you) have a nucleus and membrane-bound organelles.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Transport</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            <strong>Passive</strong> (no energy, high to low concentration) vs. <strong>Active</strong> (requires ATP energy, low to high).
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Enzymes</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Biological catalysts that speed up chemical reactions by lowering activation energy.
+          </h6>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+      <div class="container mt-4" data-aos="zoom-in" data-aos-duration="500">
+  <fieldset class="border rounded-3 p-4 position-relative">
+    <legend class="float-none w-auto px-3 fw-semibold">
+      What I need to know?
+    </legend>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">1.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Explain the fundamental postulates of the Cell Theory.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">2.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Describe the specific structure and function of both major and subcellular organelles.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">3.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Distinguish between prokaryotic and eukaryotic cells based on their unique features.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">4.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Classify various cell types found in plant and animal tissues and specify what each does.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">5.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Describe cell modifications that allow cells to adapt and perform specialized functions.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">6.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Characterize the different phases of the cell cycle and identify their critical control points.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">7.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Describe the specific structural components that make up the cell membrane.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">8.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Relate the chemical composition and structure of the cell membrane to how it functions.
+          </h6>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+<div class="container mt-4" data-aos="zoom-in" data-aos-duration="500">
+  <fieldset class="border rounded-3 p-4 position-relative">
+    <legend class="float-none w-auto px-3 fw-semibold">
+      🛠️ How to Navigate This Module
+    </legend>
+    <h6 class="ms-md-5 ps-md-5">To achieve these competencies, follow these guidelines:</h6>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">1.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Read each module carefully and follow all activity instructions.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">2.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Complete all tests and exercises provided.
+          </h6>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">3.</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            Pay attention to the Module Icons to understand your current task:
+            <button type="button" class="border-0 bg-transparent text-primary fw-bold text-decoration-underline" data-bs-toggle="modal" data-bs-target="#iconModal">
+              Click to see icons
+            </button>
+          </h6>
+        </div>
+      </div>
+  </fieldset>
+
+</div>
+
+<div class="container-fluid mt-3 text-center">
+  <button type="button" class="btn btn-primary btn-lg fw-bolder text-uppercase px-5 py-3" data-bs-toggle="modal" data-bs-target="#examModal">Biology Quiz 1: Cell Theory, Structure, and Transport</button>
+</div>
+
+</div>
+
+      <div class="masonry text-center py-5">
+        <!-- Card 1 -->
+        <div class="card shadow" data-aos="fade-up">
+          <img
+            src="../modules_front/MODULE 2.png"
+            class="card-img-top img-thumbnail"
+            alt="Cell Wall"
+          />
+          <h3 class="card-title pt-3 text-uppercase fw-bolder">
+            CELL THEORY
+          </h3>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <a
+                class="btn btn-outline-secondary py-2 px-5"
+                href="module_2.html"
+              >
+                See Lecture
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card shadow" data-aos="fade-up">
+          <img
+            src="../modules_front/MODULE 5.png"
+            class="card-img-top img-thumbnail"
+            alt="Cell Types and Cell Modifications"
+          />
+          <h3 class="card-title pt-3 text-uppercase fw-bolder">
+            Cell Types and Cell Modifications
+          </h3>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <a
+                class="btn btn-outline-secondary py-2 px-5"
+                href="module_5.html"
+              >
+                See Lecture
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card shadow" data-aos="fade-up">
+          <img
+            src="../modules_front/MODULE 3.png"
+            class="card-img-top img-thumbnail"
+            alt="Cell Structure and Functions"
+          />
+          <h3 class="card-title pt-3 text-uppercase fw-bolder">
+            Cell Structure and Functions
+          </h3>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <a
+                class="btn btn-outline-secondary py-2 px-5"
+                href="module_3.html"
+              >
+                See Lecture
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="card shadow" data-aos="fade-up">
+          <img
+            src="../modules_front/MODULE 6.png"
+            class="card-img-top img-thumbnail"
+            alt="Cell Cycle"
+          />
+          <h3 class="card-title py-0 pt-3 text-uppercase fw-bolder">
+            Cell Cycle
+          </h3>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <a
+                class="btn btn-outline-secondary py-2 px-5"
+                href="module_6.html"
+              >
+                See Lecture
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card shadow" data-aos="fade-up">
+          <img
+            src="../modules_front/MODULE 4.png"
+            class="card-img-top img-thumbnail"
+            alt="Prokaryotic vs. Eukaryotic Cells"
+          />
+          <h3 class="card-title pt-3 text-uppercase fw-bolder">
+            Prokaryotic vs. Eukaryotic Cells
+          </h3>
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <a
+                class="btn btn-outline-secondary py-2 px-5"
+                href="module_4.html"
+              >
+                See Lecture
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+
+    </div>
+<div class="modal fade" id="iconModal" tabindex="-1" aria-labelledby="iconModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="iconModalLabel">Module Icons</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="../images/icons.PNG" class="mx-auto d-block img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div
+  class="modal fade"
+  id="examModal"
+  data-bs-backdrop="static"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Biology Quiz 1</h5>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form id="examForm">
+
+          <!-- Personal Info -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Name:</span>
+                <input type="text" class="form-control" name="student_name" />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Grade and Section:</span>
+                <input type="text" class="form-control" name="grade_n_section" />
+              </div>
+            </div>
+          </div>
+
+          <p class="fst-italic px-md-5 mx-md-5">
+            Directions: Read and understand each item carefully. Choose the
+            letter of the correct answer.
+          </p>
+
+          <!-- ================= QUESTIONS ================= -->
+
+          <!-- Q1 -->
+          <div class="mb-3">
+            <label class="form-label fw-bold">
+              1. Which level of organization is the basic unit of life?
+            </label>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1a" value="Cell">
+              <label class="form-check-label" for="q1a">Cell</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1b" value="Tissue">
+              <label class="form-check-label" for="q1b">Tissue</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1c" value="Organ">
+              <label class="form-check-label" for="q1c">Organ</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1d" value="System">
+              <label class="form-check-label" for="q1d">System</label>
+            </div>
+
+            <details>
+              <summary class="fw-bolder">Scientific Context</summary>
+              <p>The cell is the smallest functional unit capable of life.</p>
+            </details>
+          </div>
+
+          <hr class="text-danger">
+
+
+              <!-- Q2 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >2. Which of the following is NOT a postulate of a unified cell theory?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques2"
+                  value="Which of the following is NOT a postulate of a unified cell theory?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q2"
+                    value="All living things are composed of cells." id="q2a"
+                  />
+                  <label class="form-check-label" for="q2a">All living things are composed of cells.</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q2"
+                    value="Cells are the basic unit of life." id="q2b"
+                  />
+                  <label class="form-check-label" for="q2b">Cells are the basic unit of life.</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q2"
+                    value="All cells undergo complete development." id="q2c"
+                  />
+                  <label class="form-check-label" for="q2c"
+                    >All cells undergo complete development.</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q2"
+                    value="All new cells arise from existing cells." id="q2d"
+                  />
+                  <label class="form-check-label" for="q2d"
+                    >All new cells arise from existing cells.</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Classical cell6 theory has three main pillars: (1) all organisms consist of one or more cells, (2) the cell is the basic unit of structure/function, and (3) all cells come from pre-existing cells. Option C is a general biological concept but not an official "postulate" of the theory.</p>
+</details>
+
+              </div>
+<hr class="text-danger">
+<!-- Q3 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >3. Who coined the term "cell" for the box-like structures he observed when viewing cork tissue?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques3"
+                  value="Who coined the term 'cell' for the box-like structures he observed when viewing cork tissue?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q3"
+                    value="Matthias Schleiden" id="q3a"
+                  />
+                  <label class="form-check-label" for="q3a">Matthias Schleiden</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q3"
+                    value="Theodor Schwann" id="q3b"
+                  />
+                  <label class="form-check-label" for="q3b">Theodor Schwann</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q3"
+                    value="Rudolf Virchow" id="q3c"
+                  />
+                  <label class="form-check-label" for="q3c"
+                    >Rudolf Virchow</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q3"
+                    value="Robert Hooke" id="q3d"
+                  />
+                  <label class="form-check-label" for="q3d"
+                    >Robert Hooke</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>In 1665, Robert Hooke used a primitive microscope to look at cork and described tiny, box-like compartments he called "cells," comparing them to the small rooms inhabited by monks.</p>
+</details>
+
+              </div>
+<hr class="text-danger">
+
+<!-- Q4 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >4. In many cells, the structure that controls the cell activities is the ___________.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques4"
+                  value="In many cells, the structure that controls the cell activities is the ___________."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4"
+                    value="Cell Membrane" id="q4a"
+                  />
+                  <label class="form-check-label" for="q4a">Cell Membrane</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4"
+                    value="Organelle" id="q4b"
+                  />
+                  <label class="form-check-label" for="q4b">Organelle</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4"
+                    value="Nucleolus" id="q4c"
+                  />
+                  <label class="form-check-label" for="q4c"
+                    >Nucleolus</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4"
+                    value="Nucleus" id="q4d"
+                  />
+                  <label class="form-check-label" for="q4d"
+                    >Nucleus</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Often called the "command center," the nucleus houses the cell's DNA. It uses this genetic information to direct essential activities like growth, metabolism, and reproduction.</p>
+</details>
+
+              </div>
+<hr class="text-danger">
+
+<!-- Q5 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >5. Which part of the cell serves as the venue for cellular respiration and is known as the "powerhouse" of the cell?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques5"
+                  value="Which part of the cell serves as the venue for cellular respiration and is known as the "powerhouse" of the cell?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5"
+                    value="Nucleolus" id="q5a"
+                  />
+                  <label class="form-check-label" for="q5a">Nucleolus</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5"
+                    value="Chromosome" id="q1b"
+                  />
+                  <label class="form-check-label" for="q5b">Chromosome</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5"
+                    value="Mitochondrion" id="q5c"
+                  />
+                  <label class="form-check-label" for="q5c"
+                    >Mitochondrion</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5"
+                    value="Nucleus" id="q5d"
+                  />
+                  <label class="form-check-label" for="q5d"
+                    >Nucleus</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>The mitochondrion is the site of cellular respiration, where nutrients like glucose are broken down to produce ATP (energy). This energy powers nearly all cellular functions.</p>
+</details>
+
+              </div>
+<hr class="text-danger"><!-- Q6 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >6. Which type of tissue would be found in the epidermis and form the lining of internal organs such as the intestines?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques6"
+                  value="Which type of tissue would be found in the epidermis and form the lining of internal organs such as the intestines?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6"
+                    value="Nervous tissue" id="q6a"
+                  />
+                  <label class="form-check-label" for="q6a">Nervous tissue</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6"
+                    value="Muscular tissue" id="q6b"
+                  />
+                  <label class="form-check-label" for="q6b">Muscular tissue</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6"
+                    value="Connective tissue" id="q6c"
+                  />
+                  <label class="form-check-label" for="q6c"
+                    >Connective tissue</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6"
+                    value="Epithelial tissue" id="q6d"
+                  />
+                  <label class="form-check-label" for="q6d"
+                    >Epithelial tissue</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Epithelial tissue forms the protective outer layer of the skin (epidermis) and lines the internal surfaces of organs like the digestive tract. It serves as a barrier and helps with absorption.</p>
+</details>
+
+              </div>
+<hr class="text-danger"><!-- Q7 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >7. The process by which the nucleus divides to produce two new nuclei that results in two daughter cells that are genetically identical to each other and to the parental cell from which they came.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques7"
+                  value="The process by which the nucleus divides to produce two new nuclei that results in two daughter cells that are genetically identical to each other and to the parental cell from which they came."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7"
+                    value="Meiosis" id="q7a"
+                  />
+                  <label class="form-check-label" for="q7a">Meiosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7"
+                    value="Interphase" id="q7b"
+                  />
+                  <label class="form-check-label" for="q7b">Interphase</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7"
+                    value="Mitosis" id="q7c"
+                  />
+                  <label class="form-check-label" for="q7c"
+                    >Mitosis</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7"
+                    value="Cytokinesis" id="q7d"
+                  />
+                  <label class="form-check-label" for="q7d"
+                    >Cytokinesis</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Mitosis is the process of cell division used for growth and repair. It ensures that each new daughter cell receives a full, identical set of chromosomes from the parent.</p>
+</details>
+
+              </div>
+<hr class="text-danger"><!-- Q8 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >8. A type of passive transport that relies on carrier proteins for the substances to move down their concentration gradient.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques8"
+                  value="A type of passive transport that relies on carrier proteins for the substances to move down their concentration gradient."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8"
+                    value="Active transport" id="q8a"
+                  />
+                  <label class="form-check-label" for="q8a">Active transport</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8"
+                    value="Facilitated diffusion" id="q8b"
+                  />
+                  <label class="form-check-label" for="q8b">Facilitated diffusion</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8"
+                    value="Osmosis" id="q8c"
+                  />
+                  <label class="form-check-label" for="q8c"
+                    >Osmosis</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8"
+                    value="Sodium-potassium pump" id="q8d"
+                  />
+                  <label class="form-check-label" for="q8d"
+                    >Sodium-potassium pump</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Facilitated diffusion is a passive process (no energy required) where transmembrane proteins, such as carrier proteins, help specific molecules cross the membrane by moving them from high to low concentration.</p>
+</details>
+
+              </div>
+<hr class="text-danger"><!-- Q9 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >9. Which of the following is an example of passive transport that occurs when particles move from an area of higher concentration to an area of lower concentration?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques9"
+                  value="Which of the following is an example of passive transport that occurs when particles move from an area of higher concentration to an area of lower concentration?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9"
+                    value="Phagocytosis" id="q9a"
+                  />
+                  <label class="form-check-label" for="q9a">Phagocytosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9"
+                    value="Pinocytosis" id="q9b"
+                  />
+                  <label class="form-check-label" for="q9b">Pinocytosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9"
+                    value="Diffusion" id="q9c"
+                  />
+                  <label class="form-check-label" for="q9c"
+                    >Diffusion</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9"
+                    value="Osmosis" id="q9d"
+                  />
+                  <label class="form-check-label" for="q9d"
+                    >Osmosis</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Both Diffusion and Osmosis are examples of passive transport where molecules move "downhill" toward a lower concentration. Osmosis is specifically the diffusion of water.</p>
+</details>
+
+              </div>
+<hr class="text-danger"><!-- Q10 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >10. This process utilizes additional metabolic energy against the concentration gradient to move molecules across the membrane from a region of lower concentration to a region of higher concentration.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques10"
+                  value="This process utilizes additional metabolic energy against the concentration gradient to move molecules across the membrane from a region of lower concentration to a region of higher concentration."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q10"
+                    value="Active Transport" id="q10a"
+                  />
+                  <label class="form-check-label" for="q10a">Active Transport</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q10"
+                    value="Passive Transport" id="q10b"
+                  />
+                  <label class="form-check-label" for="q10b">Passive Transport</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q10"
+                    value="Osmosis" id="q10c"
+                  />
+                  <label class="form-check-label" for="q10c"
+                    >Osmosis</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q10"
+                    value="Exocytosis" id="q10d"
+                  />
+                  <label class="form-check-label" for="q10d"
+                    >Exocytosis</label
+                  >
+                </div>
+                <details>
+  <summary class="fs-6 fw-bolder">Scientific Context</summary>
+  <p>Active transport requires the cell to expend energy (usually ATP) to move substances "uphill" against their natural concentration gradient. This is essential for accumulating high concentrations of needed molecules like ions and glucose.</p>
+</details>
+
+              </div>
+            </form>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="submitExam">
+          Submit Answers
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+    
+
+    <div class="container mb-5 pb-5">
+      <div class="card shadow p-4 mb-5">
+        <!-- AUTHOR BASIC INFO -->
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center">
+            <img
+              src="../images/author.jfif"
+              alt="Author"
+              class="author-img mb-3"
+            />
+          </div>
+
+          <div class="col-md-8">
+            <h3 class="fw-bolder text-uppercase">Dr. Gina B. Selga</h3>
+
+            <p class="mb-1 fw-bold">
+              Doctor of Education Major in Educational Management
+            </p>
+            <p class="mb-1 fw-bold">Juris Doctor</p>
+            <p class="mb-1 fw-bolder">
+              Master of Arts in Education Major in SCience Education
+            </p>
+
+            <button class="btn btn-primary" onclick="toggleAutobio()">
+              Read Autobiography
+            </button>
+          </div>
+        </div>
+
+        <!-- AUTOBIOGRAPHY (HIDDEN FIRST) -->
+        <div id="autobio" class="autobio">
+          <hr />
+          <h5 class="fw-bold">Autobiography</h5>
+          <p style="text-align: justify">
+            <strong>Dr. Gina B. SELGA</strong> is a visionary educator and
+            academic leader who seamlessly merges scientific inquiry with
+            technological innovation. As the creator of
+            <strong>"CELL N CARD,"</strong> she has revolutionized Science
+            pedagogy by integrating QR code technology to provide instant,
+            mobile-ready access to instructional modules and interactive
+            assessments. This innovation reflects her commitment to 21st-century
+            learning—making complex biological concepts accessible, portable,
+            and engaging for the modern learner.
+          </p>
+          <p style="text-align: justify">
+            Dr. Selga’s expertise is backed by a formidable academic foundation,
+            holding a <strong>Doctor of Education (EdD)</strong> in Educational
+            Management, a <strong>Juris Doctor (JD)</strong>, and a
+            <strong>Master in Science Education</strong>. This unique
+            combination of educational leadership and legal scholarship allows
+            her to navigate the complexities of modern school administration
+            with precision and integrity. Her academic excellence was
+            established early as a Cum Laude graduate and a national topnotcher
+            in Science, Math, and Abstract Reasoning.
+          </p>
+          <p style="text-align: justify">
+            Currently, an <strong>Associate Professor V</strong> of Pangasinan
+            State University, Dr. Selga, serves as a pillar of the
+            <strong>School of Advanced Studies</strong>, where she lends her
+            expertise to multiple post-graduate disciplines. She is a core and
+            allied professor for the
+            <strong>Doctor of Education Program</strong>, the
+            <strong>Master of Arts in Science Education Program</strong>, and
+            the
+            <strong
+              >Master of Arts in Management of both Public and Business
+              Administration</strong
+            >.
+          </p>
+          <p style="text-align: justify">
+            Her professional milestones include tenures as
+            <strong>Dean of the College of Education</strong> and
+            <strong
+              >Principal of the PSU Senior High School System, Coordinator for
+              Teaching Internship</strong
+            >, and <strong>School of Advanced Studies Planning Officer</strong>,
+            alongside being a multi-year recipient of awards for
+            <strong>Exemplary Performance in Instruction and Research</strong>.
+            A prolific author and community advocate through
+            <strong>DREAM, Corporate Social Responsibility</strong>, among
+            others, Dr. Selga remains dedicated to the "comprehensive and
+            revitalized" empowerment of schools and communities.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="endModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" >
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title">Continue Learning 🎓</h5>
+      </div>
+
+      <div class="modal-body">
+        <h4 class="mb-3 fst-italic">Scan the QR code or click below to access our video lessons</h4>
+
+        <!-- QR Code -->
+        <img 
+          src="../videos_front/Video MODULE 1.png"
+          alt="Video Lessons QR Code"
+          class="img-fluid img-thumbnail mb-3"
+        />
+
+        <!-- Button -->
+        <a href="../video_lessons/module_1.html" class="btn btn-primary w-100">
+          Go to Video Lessons
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+<script>
+  let modalShown = false;
+
+  window.addEventListener("scroll", function () {
+    if (modalShown) return;
+
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    if (scrollTop + windowHeight >= documentHeight) {
+      modalShown = true;
+
+      const modal = new bootstrap.Modal(
+        document.getElementById("endModal")
+      );
+      modal.show();
+    }
+  });
+</script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+  $(document).ready(function () {
+
+    /* =======================
+       ANSWER KEY
+    ======================= */
+    const correctAnswers = {
+      q1: "Cell",
+      q2: "All cells undergo complete development",
+      q3: "Robert Hooke",
+      q4: "Nucleus",
+      q5: "Mitochondrion",
+      q6: "Epithelial tissue",
+      q7: "Mitosis",
+      q8: "Facilitated diffusion",
+      q9: ["Diffusion", "Osmosis"], // ✅ TWO correct answers
+      q10: "Active Transport"
+    };
+
+    $("#submitExam").click(function () {
+
+      /* =======================
+         STUDENT ANSWERS
+      ======================= */
+      const studentAnswers = {
+        q1: $('input[name="q1"]:checked').val() || "No answer",
+        q2: $('input[name="q2"]:checked').val() || "No answer",
+        q3: $('input[name="q3"]:checked').val() || "No answer",
+        q4: $('input[name="q4"]:checked').val() || "No answer",
+        q5: $('input[name="q5"]:checked').val() || "No answer",
+        q6: $('input[name="q6"]:checked').val() || "No answer",
+        q7: $('input[name="q7"]:checked').val() || "No answer",
+        q8: $('input[name="q8"]:checked').val() || "No answer",
+        q9: $('input[name="q9"]:checked').val() || "No answer",
+        q10: $('input[name="q10"]:checked').val() || "No answer"
+      };
+
+      const name = $('input[name="student_name"]').val();
+      const grade_n_section = $('input[name="grade_n_section"]').val();
+
+      const questions = {
+        ques1: $('input[name="ques1"]').val(),
+        ques2: $('input[name="ques2"]').val(),
+        ques3: $('input[name="ques3"]').val(),
+        ques4: $('input[name="ques4"]').val(),
+        ques5: $('input[name="ques5"]').val(),
+        ques6: $('input[name="ques6"]').val(),
+        ques7: $('input[name="ques7"]').val(),
+        ques8: $('input[name="ques8"]').val(),
+        ques9: $('input[name="ques9"]').val(),
+        ques10: $('input[name="ques10"]').val()
+      };
+
+      /* =======================
+         CREATE PDF
+      ======================= */
+      const doc = new window.jspdf.jsPDF("p", "mm", "a4");
+
+      const pageHeight = doc.internal.pageSize.height;
+      const bottomMargin = 20;
+
+      let y = 35;
+
+      function checkPageBreak(extra = 0) {
+        if (y + extra > pageHeight - bottomMargin) {
+          doc.addPage();
+          y = 20;
+        }
+      }
+
+      /* =======================
+         HEADER
+      ======================= */
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(0);
+
+      doc.text(`Name: ${name}`, 20, 20);
+      doc.text(`Grade and Section: ${grade_n_section}`, 20, 26);
+
+      const today = new Date();
+      const formattedDate = today.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+
+      doc.text(`Date: ${formattedDate}`, 130, 20);
+
+      /* =======================
+         QUESTIONS LOOP
+      ======================= */
+      for (let i = 1; i <= 10; i++) {
+        const qKey = "q" + i;
+        const qKey1 = "ques" + i;
+
+        checkPageBreak(25);
+
+        // Question
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(0);
+        const qText = doc.splitTextToSize(`${i}. ${questions[qKey1]}`, 180);
+        doc.text(qText, 14, y);
+        y += qText.length * 6;
+
+        // Student answer
+        checkPageBreak(10);
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(0, 0, 128);
+        doc.text(`Your answer: ${studentAnswers[qKey]}`, 16, y);
+        y += 5;
+
+        // Correct answer
+        checkPageBreak(10);
+        const correctText = Array.isArray(correctAnswers[qKey])
+          ? correctAnswers[qKey].join(" or ")
+          : correctAnswers[qKey];
+
+        doc.setTextColor(0, 128, 0);
+        doc.text(`Correct answer: ${correctText}`, 16, y);
+        y += 5;
+
+        // Check correctness
+        const isCorrect = Array.isArray(correctAnswers[qKey])
+          ? correctAnswers[qKey].includes(studentAnswers[qKey])
+          : studentAnswers[qKey] === correctAnswers[qKey];
+
+        // Result box
+        checkPageBreak(12);
+        const mark = isCorrect ? "Correct" : "Wrong";
+        const color = isCorrect ? [0, 180, 0] : [200, 0, 0];
+
+        doc.setDrawColor(...color);
+        doc.setFillColor(...color);
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(255);
+        doc.rect(16, y, 40, 6, "FD");
+        doc.text(mark, 18, y + 4);
+        y += 12;
+
+        // Separator
+        doc.setDrawColor(150);
+        doc.line(14, y, 196, y);
+        y += 6;
+      }
+
+      /* =======================
+         SCORE
+      ======================= */
+      let score = 0;
+      const totalQuestions = Object.keys(correctAnswers).length;
+
+      for (let key in correctAnswers) {
+        const correct = Array.isArray(correctAnswers[key])
+          ? correctAnswers[key].includes(studentAnswers[key])
+          : studentAnswers[key] === correctAnswers[key];
+
+        if (correct) score++;
+      }
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(255, 0, 0);
+      doc.text(`Score: ${score} / ${totalQuestions}`, 130, 26);
+
+      /* =======================
+         FOOTER
+      ======================= */
+      doc.setFontSize(10);
+      doc.setTextColor(100);
+      doc.text(
+        "Generated by Plant Cell Wall Lecture System",
+        105,
+        290,
+        { align: "center" }
+      );
+
+      /* =======================
+         SAVE & CLOSE
+      ======================= */
+      doc.save("Plant_Cell_Wall_Exam.pdf");
+      $("#examModal").modal("hide");
+
+    });
+  });
+</script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      function toggleAutobio() {
+        const autobio = document.getElementById("autobio");
+        const btn = event.target;
+
+        if (autobio.style.display === "none" || autobio.style.display === "") {
+          autobio.style.display = "block";
+          btn.textContent = "Hide Autobiography";
+        } else {
+          autobio.style.display = "none";
+          btn.textContent = "Read Autobiography";
+        }
+      }
+    </script>
+  </body>
+</html>
+

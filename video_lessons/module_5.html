@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Lesson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container py-4">
+
+    <!-- Welcome Section -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Welcome to Your Module 5 Video Lecture 👋</h2>
+      <p class="text-secondary mb-0">
+        Watch the video below, then answer the exam at the bottom of this page.
+      </p>
+    </div>
+
+    <!-- Video Section -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 col-xl-9 mb-5">
+
+        <div class="ratio ratio-16x9 rounded overflow-hidden shadow-lg">
+<iframe width="935" height="534" src="https://www.youtube.com/embed/o7O8JIUWszQ" title="15 Incredible Types of Cells" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+
+      </div>
+    </div>
+
+    
+    <div class="bg-dark text-white py-3 my-5">
+      <div class="container d-flex justify-content-end">
+        <p class="fst-italic px-md-3">
+          Please answer the exam after you have studied the lecture
+        </p>
+        <button
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#examModal"
+        >
+          Answer Exam
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+    <!-- Exam Modal -->
+    <div
+      class="modal fade"
+      id="examModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Module 5 EXAM</h5>
+          </div>
+
+          <div class="modal-body">
+            <form id="examForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"
+                      >Name:</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="student_name"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"
+                      >Grade and Section:</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="grade_n_section"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr />
+
+              <p class="fw-bold fst-italic">
+                Instructions: Read each question carefully and select the best
+                answer from the given choices.
+              </p>
+
+              <div class="container-fluid my-3">
+                <hr class="text-danger" />
+                <hr />
+                <!-- Q1 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >Which cell type is characterized by having a cell wall made
+                    of chitin and no chloroplasts?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="A"
+                      id="q1a"
+                    />
+                    <label class="form-check-label" for="q1a"
+                      >Plant cell
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="B"
+                      id="q1b"
+                    />
+                    <label class="form-check-label" for="q1b"
+                      >Animal cell</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="C"
+                      id="q1c"
+                    />
+                    <label class="form-check-label" for="q1c"
+                      >Fungal cell</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="D"
+                      id="q1d"
+                    />
+                    <label class="form-check-label" for="q1d"
+                      >Protist cell</label
+                    >
+                  </div>
+                </div>
+                <hr />
+                <!-- Q2 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >The process where a general cell develops into a
+                    specialized cell with a specific shape and function is
+                    called:
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="A"
+                      id="q2a"
+                    />
+                    <label class="form-check-label" for="q2a"
+                      >Cell division
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="B"
+                      id="q2b"
+                    />
+                    <label class="form-check-label" for="q2b"
+                      >Cell modification (Differentiation)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="C"
+                      id="q2c"
+                    />
+                    <label class="form-check-label" for="q2c"
+                      >Cell respiration</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="D"
+                      id="q2d"
+                    />
+                    <label class="form-check-label" for="q2d"
+                      >Cell migration</label
+                    >
+                  </div>
+                </div>
+                <hr />
+                <!-- Q3 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >Why do mature human red blood cells (erythrocytes) lack a
+                    nucleus?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="A"
+                      id="q3a"
+                    />
+                    <label class="form-check-label" for="q3a"
+                      >To allow the cell to divide faster
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="B"
+                      id="q3b"
+                    />
+                    <label class="form-check-label" for="q3b"
+                      >To make the cell lighter for faster travel</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="C"
+                      id="q3c"
+                    />
+                    <label class="form-check-label" for="q3c"
+                      >To create more space for hemoglobin to carry
+                      oxygen</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="D"
+                      id="q3d"
+                    />
+                    <label class="form-check-label" for="q3d"
+                      >To prevent the cell from being attacked by viruses</label
+                    >
+                  </div>
+                </div>
+                <hr />
+                <!-- Q4 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >4. Which organelle is found in high concentrations in the
+                    "midpiece" of a sperm cell to provide energy for swimming?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q4"
+                      value="A"
+                      id="q4a"
+                    />
+                    <label class="form-check-label" for="q4a">Nucleus </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q4"
+                      value="B"
+                      id="q4b"
+                    />
+                    <label class="form-check-label" for="q4b">Golgi Body</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q4"
+                      value="C"
+                      id="q4c"
+                    />
+                    <label class="form-check-label" for="q4c"
+                      >Mitochondria
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q4"
+                      value="D"
+                      id="q4d"
+                    />
+                    <label class="form-check-label" for="q4d">Ribosome</label>
+                  </div>
+                </div>
+                <hr />
+                <!-- Q5 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >A neuron’s long extension, called an axon, is a
+                    modification specifically designed for:
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q5"
+                      value="A"
+                      id="q5a"
+                    />
+                    <label class="form-check-label" for="q5a"
+                      >Storing nutrients
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q5"
+                      value="B"
+                      id="q5b"
+                    />
+                    <label class="form-check-label" for="q5b"
+                      >Transmitting electrical signals over long
+                      distances</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q5"
+                      value="C"
+                      id="q5c"
+                    />
+                    <label class="form-check-label" for="q5c"
+                      >Absorbing water from surrounding tissues</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q5"
+                      value="D"
+                      id="q5d"
+                    />
+                    <label class="form-check-label" for="q5d"
+                      >Protecting the brain from physical shock</label
+                    >
+                  </div>
+                </div>
+                <hr />
+                <!-- Q6 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >Which of the following plant cell modifications is
+                    responsible for increasing the surface area to maximize
+                    water and mineral absorption?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q6"
+                      value="A"
+                      id="q6a"
+                    />
+                    <label class="form-check-label" for="q6a"
+                      >Guard cells
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q6"
+                      value="B"
+                      id="q6b"
+                    />
+                    <label class="form-check-label" for="q6b"
+                      >Xylem vessels</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q6"
+                      value="C"
+                      id="q6c"
+                    />
+                    <label class="form-check-label" for="q6c"
+                      >Phloem tubes
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q6"
+                      value="D"
+                      id="q6d"
+                    />
+                    <label class="form-check-label" for="q6d"
+                      >Root hair cells</label
+                    >
+                  </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >Guard cells are found on the surface of leaves. Their
+                    primary role is to:
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q7"
+                      value="A"
+                      id="q7a"
+                    />
+                    <label class="form-check-label" for="q7a"
+                      >Perform the majority of photosynthesis</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q7"
+                      value="B"
+                      id="q7b"
+                    />
+                    <label class="form-check-label" for="q7b"
+                      >Open and close stomata to regulate gas exchange and water
+                      loss</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q7"
+                      value="C"
+                      id="q7c"
+                    />
+                    <label class="form-check-label" for="q7c"
+                      >Protect the leaf from being eaten by insects
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q7"
+                      value="D"
+                      id="q7d"
+                    />
+                    <label class="form-check-label" for="q7d"
+                      >Transport sugar from the leaves to the roots</label
+                    >
+                  </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >8. Muscle cells contain specialized contractile proteins
+                    that allow for movement. These proteins are:
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q8"
+                      value="A"
+                      id="q8a"
+                    />
+                    <label class="form-check-label" for="q8a"
+                      >Cellulose and Chitin</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q8"
+                      value="B"
+                      id="q8b"
+                    />
+                    <label class="form-check-label" for="q8b"
+                      >Actin and Myosin</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q8"
+                      value="C"
+                      id="q8c"
+                    />
+                    <label class="form-check-label" for="q8c"
+                      >Hemoglobin and Insulin
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q8"
+                      value="D"
+                      id="q8d"
+                    />
+                    <label class="form-check-label" for="q8d"
+                      >Keratin and Collagen</label
+                    >
+                  </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >9. Which tissue in plants is modified into "tubes"
+                    specifically for the upward transport of water?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q9"
+                      value="A"
+                      id="q9a"
+                    />
+                    <label class="form-check-label" for="q9a">Phloem</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q9"
+                      value="B"
+                      id="q9b"
+                    />
+                    <label class="form-check-label" for="q9b">Xylem</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q9"
+                      value="C"
+                      id="q9c"
+                    />
+                    <label class="form-check-label" for="q9c">Epidermis </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q9"
+                      value="D"
+                      id="q9d"
+                    />
+                    <label class="form-check-label" for="q9d">Mesophyll</label>
+                  </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >A cell with a cell wall made of cellulose and the presence
+                    of large central vacuoles and chloroplasts is a/an:
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q10"
+                      value="A"
+                      id="q10a"
+                    />
+                    <label class="form-check-label" for="q10a"
+                      >Animal cell</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q10"
+                      value="B"
+                      id="q10b"
+                    />
+                    <label class="form-check-label" for="q10b"
+                      >Bacterial cell</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q10"
+                      value="C"
+                      id="q10c"
+                    />
+                    <label class="form-check-label" for="q10c"
+                      >Plant cell
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q10"
+                      value="D"
+                      id="q10d"
+                    />
+                    <label class="form-check-label" for="q10d"
+                      >Fungal cell</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="submitExam">
+              Submit Answers
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const correctAns = {
+          ans1: "C",
+          ans2: "B",
+          ans3: "C",
+          ans4: "C",
+          ans5: "B",
+          ans6: "D",
+          ans7: "B",
+          ans8: "B",
+          ans9: "B",
+          ans10: "C",
+        };
+        const multipleQues = {
+          q1: "Which cell type is characterized by having a cell wall made of chitin and no chloroplasts?",
+          q2: "The process where a general cell develops into a specialized cell with a specific shape and function is called: ",
+          q3: "Why do mature human red blood cells (erythrocytes) lack a nucleus?",
+          q4: "Which organelle is found in high concentrations in the 'midpiece' of a sperm cell to provide energy for swimming? ",
+          q5: "A neuron’s long extension, called an axon, is a modification specifically designed for:",
+          q6: "Which of the following plant cell modifications is responsible for increasing the surface area to maximize water and mineral absorption?",
+          q7: "Guard cells are found on the surface of leaves. Their primary role is to:",
+          q8: "Muscle cells contain specialized contractile proteins that allow for movement. These proteins are: ",
+          q9: "Which tissue in plants is modified into 'tubes' specifically for the upward transport of water?",
+          q10: "A cell with a cell wall made of cellulose and the presence of large central vacuoles and chloroplasts is a/an: ",
+        };
+
+        $("#submitExam").click(function () {
+          let organelleResults = [];
+          let organelleScore = 0;
+          let totalOrganelleItems = 0;
+
+          const mAnswers = {
+            m1: $('input[name="q1"]:checked').val() || "No answer",
+            m2: $('input[name="q2"]:checked').val() || "No answer",
+            m3: $('input[name="q3"]:checked').val() || "No answer",
+            m4: $('input[name="q4"]:checked').val() || "No answer",
+            m5: $('input[name="q5"]:checked').val() || "No answer",
+            m6: $('input[name="q6"]:checked').val() || "No answer",
+            m7: $('input[name="q7"]:checked').val() || "No answer",
+            m8: $('input[name="q8"]:checked').val() || "No answer",
+            m9: $('input[name="q9"]:checked').val() || "No answer",
+            m10: $('input[name="q10"]:checked').val() || "No answer",
+          };
+
+          const name = $('input[name="student_name"]').val();
+          const grade_n_section = $('input[name="grade_n_section"]').val();
+
+          /* =======================
+         CREATE PDF
+      ======================= */
+          const doc = new window.jspdf.jsPDF("p", "mm", "a4");
+
+          const pageHeight = doc.internal.pageSize.height;
+          const bottomMargin = 20;
+
+          let y = 35;
+
+          function checkPageBreak(extra = 0) {
+            if (y + extra > pageHeight - bottomMargin) {
+              doc.addPage();
+              y = 20;
+            }
+          }
+
+          /* =======================
+         HEADER
+      ======================= */
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(12);
+          doc.setTextColor(0);
+
+          doc.text(`Name: ${name}`, 20, 20);
+          doc.text(`Grade and Section: ${grade_n_section}`, 20, 26);
+
+          const today = new Date();
+          const formattedDate = today.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+
+          doc.text(`Date: ${formattedDate}`, 130, 20);
+
+          /* =======================
+         MULTIPLE QUESTIONS LOOP
+======================= */
+
+          y = y + 10;
+          for (let i = 1; i <= 10; i++) {
+            const q = "q" + i; //questions
+            const mAns = "m" + i; //student answer
+            const cAns = "ans" + i; //correct answer
+
+            checkPageBreak(25);
+
+            // Question
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(0);
+            const qText = doc.splitTextToSize(`${i}. ${multipleQues[q]}`, 180);
+            doc.text(qText, 14, y);
+            y += qText.length * 6;
+
+            // Student answer
+            checkPageBreak(10);
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(0, 0, 128);
+            doc.text(`Your answer: ${mAnswers[mAns]}`, 16, y);
+            y += 5;
+
+            // Correct answer
+            checkPageBreak(10);
+            const correctText = Array.isArray(correctAns[cAns])
+              ? correctAns[cAns].join(" or ")
+              : correctAns[cAns];
+
+            doc.setTextColor(0, 128, 0);
+            doc.text(`Correct answer: ${correctText}`, 16, y);
+            y += 5;
+
+            // Check correctness
+            const isCorrect = Array.isArray(correctAns[cAns])
+              ? correctAns[cAns].includes(mAnswers[mAns])
+              : mAnswers[mAns] === correctAns[cAns];
+
+            // Result box
+            checkPageBreak(12);
+            const mark = isCorrect ? "Correct" : "Wrong";
+            const color = isCorrect ? [0, 180, 0] : [200, 0, 0];
+
+            doc.setDrawColor(...color);
+            doc.setFillColor(...color);
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(255);
+            doc.rect(16, y, 40, 6, "FD");
+            doc.text(mark, 18, y + 4);
+            y += 12;
+
+            // Separator
+            doc.setDrawColor(150);
+            doc.line(14, y, 196, y);
+            y += 6;
+          }
+
+          /* =======================
+   MULTIPLE QUESTIONS SCORE (FIXED)
+======================= */
+          let score1 = 0;
+          const totalQuestions1 = 6;
+
+          for (let i = 1; i <= totalQuestions1; i++) {
+            const answerKey = "m" + i;
+            const correctKey = "ans" + i;
+
+            const studentAnswer = mAnswers[answerKey];
+            const correctAnswer = correctAns[correctKey];
+
+            const isCorrect = Array.isArray(correctAnswer)
+              ? correctAnswer.includes(studentAnswer)
+              : studentAnswer === correctAnswer;
+
+            if (isCorrect) score1++;
+          }
+
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(12);
+          doc.setTextColor(255, 0, 0);
+          doc.text(`Score: ${score1} / ${totalQuestions1}`, 14, y);
+          // Separator
+          doc.setDrawColor(150);
+          doc.line(14, y + 6, 196, y + 6);
+
+          y += 20;
+
+          /* =======================
+         SAVE & CLOSE
+      ======================= */
+          doc.save("Module 5.pdf");
+          $("#examModal").modal("hide");
+        });
+      });
+    </script>
+</body>
+</html>

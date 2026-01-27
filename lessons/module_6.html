@@ -1,0 +1,1890 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cell Cycle</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+      .star-rating i {
+        font-size: 1.8rem;
+        color: #ccc;
+        cursor: pointer;
+      }
+
+      .star-rating i.active {
+        color: #ffc107;
+      }
+
+      .author-img {
+        width: 160px;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 10%;
+      }
+
+      .autobio {
+        display: none;
+        margin-top: 20px;
+      }
+      .correct {
+        background-color: #d4edda;
+      }
+      .incorrect {
+        background-color: #f8d7da;
+      }
+      input[type="checkbox"] {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+
+      .result {
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .lecture-title {
+        background: #2e7d32;
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .lecture-card {
+        background: white;
+        border-left: 6px solid #66bb6a;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      .structure-title {
+        font-weight: 600;
+        color: #1b5e20;
+      }
+      .function-text {
+        margin-top: 8px;
+      }
+      .input-group-text {
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      .rotate-icon {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .rotate-icon.rotated {
+        transform: rotate(180deg);
+      }
+      hr {
+        font-weight: 900;
+        color: #198754;
+      }
+      .modal.fade.show {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(20px); /* Safari */
+        background-color: rgba(0, 0, 0, 00.8);
+      }
+      body {
+        background-color: #f8f9fa;
+      }
+      .lecture-header {
+        background: linear-gradient(135deg, #198754, #20c997);
+        color: white;
+      }
+      .lecture-content p {
+        text-align: justify;
+      }
+      body {
+        background: #f4f6f9;
+      }
+      .feedback {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.85rem;
+      }
+
+      .feedback.correct {
+        color: #198754; /* green */
+      }
+
+      .feedback.incorrect {
+        color: #dc3545; /* red */
+      }
+
+      /* Optional: color the textbox border */
+      .input-correct {
+        border-color: #198754;
+      }
+
+      .input-incorrect {
+        border-color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="lecture-header py-4 mb-4">
+      <div class="container">
+        <h1 class="fw-bold">Module 6: Cell Cycle</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container lecture-content mb-5">
+      <!-- Introduction Card -->
+      <div class="card mb-5 shadow-sm">
+        <div class="card-body">
+          <p class="card-text">
+            Every single second, millions of cells in your body are making a
+            high-stakes decision: to divide or to die.
+          </p>
+          <p class="card-text">
+            Right now, as you read this sentence, your body is a bustling
+            construction site. Somewhere in your skin, a cell is stretching,
+            duplicating its blueprints, and snapping into two fresh copies to
+            heal a tiny scratch. Inside your bone marrow, cells are sprinting
+            through a biological "to-do list" to keep your blood flowing.
+          </p>
+          <p class="card-text">
+            This isn't just biology; it’s the ultimate survival relay race. From
+            a single fertilized egg to the trillions of cells that make you you,
+            the Cell Cycle is the rhythmic heartbeat of growth, repair, and life
+            itself.
+          </p>
+          <h5>
+            Are you ready to go behind the scenes of the world's most perfect
+            duplication machine? Let’s dive in!
+          </h5>
+        </div>
+      </div>
+      <fieldset class="border rounded-3 p-2 my-5 position-relative">
+        <legend class="float-none w-auto px-3 fw-semibold">
+          Module: The Cycle of Life – Understanding Cell Division
+        </legend>
+        <p class="fst-italic">
+          Welcome to this module on the Cell Cycle. This guide will take you
+          through the fascinating process of how a single cell prepares, grows,
+          and eventually divides to create new life.
+        </p>
+      </fieldset>
+
+      <div class="card mb-5">
+        <div class="card-body">
+          <h5>What I Need to Know</h5>
+          <p class="card-text">
+            By the end of this module, you should be able to:
+          </p>
+          <ul class="list-group-numbered">
+            <li class="list-group-item">
+              Identify the distinct stages of the cell cycle (Interphase and
+              M-phase).
+            </li>
+            <li class="list-group-item">
+              Describe the specific events that occur in G_1, S, and G_2 phases.
+            </li>
+            <li class="list-group-item">
+              Explain the importance of the cell cycle in growth, repair, and
+              reproduction.
+            </li>
+            <li class="list-group-item">
+              Distinguish between <strong>Mitosis</strong> (nuclear division)
+              and <strong>Cytokinesis</strong> (cytoplasmic division).
+            </li>
+          </ul>
+          <h5>What’s In</h5>
+          <p class="card-text">
+            In your previous lessons, you learned that the
+            <strong>cell</strong> is the basic unit of life. You explored cell
+            organelles like the nucleus, which contains our genetic blueprint
+            (DNA). But have you ever wondered how an injury heals or how a tiny
+            seedling turns into a massive tree? It all comes down to the cell's
+            ability to replicate itself.
+          </p>
+          <h5>What’s New</h5>
+          <p class="card-text">
+            Imagine a factory that needs to double its production. It doesn't
+            just "split" in half instantly. It must first:
+          </p>
+          <ul class="list-group-numbered">
+            <li class="list-group-item">Build more machinery (G1 Phase)</li>
+            <li class="list-group-item">
+              Photocopy all the blueprints (S Phase)
+            </li>
+            <li class="list-group-item">
+              Double-check everything for errors (G2 Phase)
+            </li>
+            <li class="list-group-item">
+              Physically divide the building into two (M Phase)
+            </li>
+          </ul>
+          <p class="card-text">
+            This organized "to-do list" is what we call the
+            <strong>Cell Cycle</strong>.
+          </p>
+          <h5>What is it?</h5>
+          <p class="card-text">
+            The cell cycle is a repeating series of events that include growth,
+            DNA synthesis, and cell division. It is divided into two main
+            periods:
+          </p>
+          <div class="d-flex justify-content-center">
+            <img
+              src="../images/the_cell_cycle.png"
+              alt=""
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+
+          <h4>1. Interphase (The Preparation Phase)</h4>
+          <p class="card-text">
+            This is the longest part of the cycle (about 90% of the time).
+          </p>
+          <ul>
+            <li>
+              <strong>G_1 Phase (Gap 1):</strong> The cell grows physically
+              larger, copies organelles, and makes the molecular building blocks
+              it will need later.
+            </li>
+            <li>
+              <strong>S Phase (Synthesis):</strong> The cell synthesizes a
+              complete copy of the DNA in its nucleus.
+            </li>
+            <li>
+              <strong>G_2 Phase (Gap 2):</strong> Further growth and protein
+              synthesis; the cell "double-checks" the duplicated chromosomes for
+              errors.
+            </li>
+          </ul>
+          <div class="d-flex justify-content-center">
+            <img
+              src="../images/interphase.png"
+              alt=""
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+
+          <h4>2. M-Phase (The Division Phase)</h4>
+          <ul>
+            <li>
+              Mitosis: The division of the nucleus. It consists of Prophase,
+              Metaphase, Anaphase, and Telophase.
+            </li>
+            <li>
+              Cytokinesis: The division of the cytoplasm, resulting in two
+              distinct "daughter cells."
+            </li>
+          </ul>
+          <div class="d-flex justify-content-center">
+            <img
+              src="../images/mitosis.png"
+              alt=""
+              class="img-fluid img-thumbnail"
+            />
+          </div>
+
+          <p class="card-text">
+            A scientific diagram illustrating four stages of animal cell
+            mitosis: prophase, metaphase, telophase, and cytokinesis, showing
+            chromosomes and spindle fibers within blue cells on a dark
+            background.
+          </p>
+          <div class="d-flex justify-content-center">
+            <img
+              src="../images/cell_process.png"
+              alt=""
+              class="img-fluid img-interphase"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="pb-5">
+        <div class="card my-5 p-2 mb-5">
+          <div class="card-body">
+            <h5>What's More: Practice Test</h5>
+            <h6 class="mb-3">True or False?</h6>
+            <div class="input-group mb-1">
+              <input type="text" class="form-control" id="tf1" />
+              <span class="input-group-text">
+                DNA replication happens during the M-phase.
+              </span>
+            </div>
+            <div id="tf1-feedback" class="feedback"></div>
+
+            <div class="input-group mb-1">
+              <input type="text" class="form-control" id="tf2" />
+              <span class="input-group-text">
+                Interphase is the resting stage where nothing happens.
+              </span>
+            </div>
+            <div id="tf2-feedback" class="feedback"></div>
+
+            <div class="input-group mb-1">
+              <input type="text" class="form-control" id="tf3" />
+              <span class="input-group-text">
+                G₁ is primarily for cell growth.
+              </span>
+            </div>
+            <div id="tf3-feedback" class="feedback"></div>
+
+            <div class="input-group mb-1">
+              <input type="text" class="form-control" id="tf4" />
+              <span class="input-group-text">
+                Cytokinesis happens after the nucleus has divided.
+              </span>
+            </div>
+            <div id="tf4-feedback" class="feedback"></div>
+
+            <button class="btn btn-primary mt-3" onclick="checkTrueFalse()">
+              Submit Answers
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="container mb-5 pb-5">
+      <div class="card shadow p-4 mb-5">
+        <!-- AUTHOR BASIC INFO -->
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center">
+            <img
+              src="../images/author.jfif"
+              alt="Author"
+              class="author-img mb-3"
+            />
+          </div>
+
+          <div class="col-md-8">
+            <h3 class="fw-bolder text-uppercase">Dr. Gina B. Selga</h3>
+
+            <p class="mb-1 fw-bold">
+              Doctor of Education Major in Educational Management
+            </p>
+            <p class="mb-1 fw-bold">Juris Doctor</p>
+            <p class="mb-1 fw-bolder">
+              Master of Arts in Education Major in SCience Education
+            </p>
+
+            <button class="btn btn-primary" onclick="toggleAutobio()">
+              Read Autobiography
+            </button>
+          </div>
+        </div>
+
+        <!-- AUTOBIOGRAPHY (HIDDEN FIRST) -->
+        <div id="autobio" class="autobio">
+          <hr />
+          <h5 class="fw-bold">Autobiography</h5>
+          <p style="text-align: justify">
+            <strong>Dr. Gina B. SELGA</strong> is a visionary educator and
+            academic leader who seamlessly merges scientific inquiry with
+            technological innovation. As the creator of
+            <strong>"CELL N CARD,"</strong> she has revolutionized Science
+            pedagogy by integrating QR code technology to provide instant,
+            mobile-ready access to instructional modules and interactive
+            assessments. This innovation reflects her commitment to 21st-century
+            learning—making complex biological concepts accessible, portable,
+            and engaging for the modern learner.
+          </p>
+          <p style="text-align: justify">
+            Dr. Selga’s expertise is backed by a formidable academic foundation,
+            holding a <strong>Doctor of Education (EdD)</strong> in Educational
+            Management, a <strong>Juris Doctor (JD)</strong>, and a
+            <strong>Master in Science Education</strong>. This unique
+            combination of educational leadership and legal scholarship allows
+            her to navigate the complexities of modern school administration
+            with precision and integrity. Her academic excellence was
+            established early as a Cum Laude graduate and a national topnotcher
+            in Science, Math, and Abstract Reasoning.
+          </p>
+          <p style="text-align: justify">
+            Currently, an <strong>Associate Professor V</strong> of Pangasinan
+            State University, Dr. Selga, serves as a pillar of the
+            <strong>School of Advanced Studies</strong>, where she lends her
+            expertise to multiple post-graduate disciplines. She is a core and
+            allied professor for the
+            <strong>Doctor of Education Program</strong>, the
+            <strong>Master of Arts in Science Education Program</strong>, and
+            the
+            <strong
+              >Master of Arts in Management of both Public and Business
+              Administration</strong
+            >.
+          </p>
+          <p style="text-align: justify">
+            Her professional milestones include tenures as
+            <strong>Dean of the College of Education</strong> and
+            <strong
+              >Principal of the PSU Senior High School System, Coordinator for
+              Teaching Internship</strong
+            >, and <strong>School of Advanced Studies Planning Officer</strong>,
+            alongside being a multi-year recipient of awards for
+            <strong>Exemplary Performance in Instruction and Research</strong>.
+            A prolific author and community advocate through
+            <strong>DREAM, Corporate Social Responsibility</strong>, among
+            others, Dr. Selga remains dedicated to the "comprehensive and
+            revitalized" empowerment of schools and communities.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 fixed-bottom">
+      <div class="container d-flex justify-content-end">
+        <p class="fst-italic px-md-3">
+          Please answer the exam after you have studied the lecture properly
+        </p>
+        <button
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#examModal"
+        >
+          Answer Exam
+        </button>
+      </div>
+    </footer>
+
+    <!-- Exam Modal -->
+    <div
+      class="modal fade"
+      id="examModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Module 6 EXAM</h5>
+          </div>
+
+          <div class="modal-body">
+            <form id="examForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"
+                      >Name:</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="student_name"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"
+                      >Grade and Section:</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="grade_n_section"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="card bg-success text-white mb-5">
+                <div class="card-body">
+                  <h4>What I Need to Do (Performance Task)</h4>
+                  <p class="card-text">
+                    To demonstrate your understanding, complete the following
+                    activity:
+                  </p>
+                  <h5>The "Cell Cycle Clock" Project</h5>
+                  <ul class="list-group-numbered">
+                    <li class="list-group-item">
+                      Draw a large circle on a piece of paper.
+                    </li>
+                    <li class="list-group-item">
+                      Divide the circle into sections representing G_1, S, G_2,
+                      and Mitosis (remember that Interphase should take up most
+                      of the circle).
+                    </li>
+                    <li class="list-group-item">
+                      Inside each section, draw one "key event" (e.g., drawing
+                      two sets of DNA in the S-phase section).
+                    </li>
+                    <li class="list-group-item">
+                      Color-code your clock: Use cool colors (blue/green) for
+                      Interphase and warm colors (red/orange) for the M-phase.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="fw-bold fst-italic">Select the best answer.</p>
+
+              <div class="container-fluid my-3">
+                <hr class="text-danger" />
+                <hr />
+                <!-- Q1 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >Which phase involves the actual copying of DNA?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="A"
+                      id="q1a"
+                    />
+                    <label class="form-check-label" for="q1a">G_1 </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="B"
+                      id="q1b"
+                    />
+                    <label class="form-check-label" for="q1b">S</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="C"
+                      id="q1c"
+                    />
+                    <label class="form-check-label" for="q1c">G_2</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q1"
+                      value="D"
+                      id="q1d"
+                    />
+                    <label class="form-check-label" for="q1d">Mitosis</label>
+                  </div>
+                </div>
+                <hr />
+                <!-- Q2 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >If a cell has 10 chromosomes at the start of G_1, how many
+                    chromosomes will it have after the S-phase?
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="A"
+                      id="q2a"
+                    />
+                    <label class="form-check-label" for="q2a">5 </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="B"
+                      id="q2b"
+                    />
+                    <label class="form-check-label" for="q2b"
+                      >10 (but with doubled chromatids)
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="C"
+                      id="q2c"
+                    />
+                    <label class="form-check-label" for="q2c">20</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q2"
+                      value="D"
+                      id="q2d"
+                    />
+                    <label class="form-check-label" for="q2d">0</label>
+                  </div>
+                </div>
+                <hr />
+                <!-- Q3 -->
+                <div class="mb-3">
+                  <label class="form-label fw-bold"
+                    >The division of the cytoplasm is called:
+                  </label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="A"
+                      id="q3a"
+                    />
+                    <label class="form-check-label" for="q3a">Mitosis </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="B"
+                      id="q3b"
+                    />
+                    <label class="form-check-label" for="q3b">Meiosis</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="C"
+                      id="q3c"
+                    />
+                    <label class="form-check-label" for="q3c"
+                      >Cytokinesis</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="q3"
+                      value="D"
+                      id="q3d"
+                    />
+                    <label class="form-check-label" for="q3d">Synthesis</label>
+                  </div>
+                </div>
+              </div>
+
+              <p class="fst-italic px-md-5 mx-md-5">
+                Directions: Read and understand each item carefully. Choose the
+                letter of the correct answer.
+              </p>
+              <!-- Q1 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">
+                  1. Which level of biological organization is the basic unit of
+                  life?
+                </label>
+
+                <input
+                  type="hidden"
+                  name="ques1"
+                  value="Which level of biological organization is the basic unit of life?"
+                />
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq1"
+                    id="fq1a"
+                    value="Cell"
+                  />
+                  <label class="form-check-label" for="fq1a">Cell</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq1"
+                    id="fq1b"
+                    value="Tissue"
+                  />
+                  <label class="form-check-label" for="fq1b">Tissue</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq1"
+                    id="fq1c"
+                    value="Organ"
+                  />
+                  <label class="form-check-label" for="fq1c">Organ</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq1"
+                    id="fq1d"
+                    value="System"
+                  />
+                  <label class="form-check-label" for="fq1d">System</label>
+                </div>
+              </div>
+
+              <hr class="text-danger" />
+
+              <!-- Q2 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">
+                  2. Which of the following is NOT a postulate of the unified
+                  cell theory?
+                </label>
+
+                <input
+                  type="hidden"
+                  name="ques2"
+                  value="Which of the following is NOT a postulate of the unified cell theory?"
+                />
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq2"
+                    id="fq2a"
+                    value="All living things are composed of cells."
+                  />
+                  <label class="form-check-label" for="fq2a">
+                    All living things are composed of cells.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq2"
+                    id="fq2b"
+                    value="Cells are the basic unit of life."
+                  />
+                  <label class="form-check-label" for="fq2b">
+                    Cells are the basic unit of life.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq2"
+                    id="fq2c"
+                    value="All cells undergo complete development."
+                  />
+                  <label class="form-check-label" for="fq2c">
+                    All cells undergo complete development.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq2"
+                    id="fq2d"
+                    value="All new cells arise from existing cells."
+                  />
+                  <label class="form-check-label" for="fq2d">
+                    All new cells arise from existing cells.
+                  </label>
+                </div>
+              </div>
+
+              <hr class="text-danger" />
+
+              <!-- Q3 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">
+                  3. Who coined the term "cell" after observing cork tissue?
+                </label>
+
+                <input
+                  type="hidden"
+                  name="ques3"
+                  value='Who coined the term "cell" after observing cork tissue?'
+                />
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq3"
+                    id="fq3a"
+                    value="Matthias Schleiden"
+                  />
+                  <label class="form-check-label" for="fq3a"
+                    >Matthias Schleiden</label
+                  >
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq3"
+                    id="fq3b"
+                    value="Theodor Schwann"
+                  />
+                  <label class="form-check-label" for="fq3b"
+                    >Theodor Schwann</label
+                  >
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq3"
+                    id="fq3c"
+                    value="Rudolf Virchow"
+                  />
+                  <label class="form-check-label" for="fq3c"
+                    >Rudolf Virchow</label
+                  >
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq3"
+                    id="fq3d"
+                    value="Robert Hooke"
+                  />
+                  <label class="form-check-label" for="fq3d"
+                    >Robert Hooke</label
+                  >
+                </div>
+              </div>
+
+              <hr class="text-danger" />
+
+              <!-- Q4 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">
+                  4. Which structure controls most cell activities?
+                </label>
+
+                <input
+                  type="hidden"
+                  name="ques4"
+                  value="Which structure controls most cell activities?"
+                />
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq4"
+                    id="fq4a"
+                    value="Cell Membrane"
+                  />
+                  <label class="form-check-label" for="fq4a"
+                    >Cell Membrane</label
+                  >
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq4"
+                    id="fq4b"
+                    value="Organelle"
+                  />
+                  <label class="form-check-label" for="fq4b">Organelle</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq4"
+                    id="fq4c"
+                    value="Nucleolus"
+                  />
+                  <label class="form-check-label" for="fq4c">Nucleolus</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq4"
+                    id="fq4d"
+                    value="Nucleus"
+                  />
+                  <label class="form-check-label" for="fq4d">Nucleus</label>
+                </div>
+              </div>
+
+              <hr class="text-danger" />
+
+              <!-- Q5 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold">
+                  5. Which organelle is known as the powerhouse of the cell?
+                </label>
+
+                <input
+                  type="hidden"
+                  name="ques5"
+                  value="Which organelle is known as the powerhouse of the cell?"
+                />
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq5"
+                    id="fq5a"
+                    value="Nucleolus"
+                  />
+                  <label class="form-check-label" for="fq5a">Nucleolus</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq5"
+                    id="fq5b"
+                    value="Chromosome"
+                  />
+                  <label class="form-check-label" for="fq5b">Chromosome</label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq5"
+                    id="fq5c"
+                    value="Mitochondrion"
+                  />
+                  <label class="form-check-label" for="fq5c"
+                    >Mitochondrion</label
+                  >
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq5"
+                    id="fq5d"
+                    value="Nucleus"
+                  />
+                  <label class="form-check-label" for="fq5d">Nucleus</label>
+                </div>
+              </div>
+
+              <hr class="text-danger" />
+              <!-- Q6 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >6. Which type of tissue would be found in the epidermis and
+                  form the lining of internal organs such as the
+                  intestines?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques6"
+                  value="Which type of tissue would be found in the epidermis and form the lining of internal organs such as the intestines?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq6"
+                    value="Nervous tissue"
+                    id="fq6a"
+                  />
+                  <label class="form-check-label" for="fq6a"
+                    >Nervous tissue</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq6"
+                    value="Muscular tissue"
+                    id="fq6b"
+                  />
+                  <label class="form-check-label" for="fq6b"
+                    >Muscular tissue</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq6"
+                    value="Connective tissue"
+                    id="fq6c"
+                  />
+                  <label class="form-check-label" for="fq6c"
+                    >Connective tissue</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq6"
+                    value="Epithelial tissue"
+                    id="fq6d"
+                  />
+                  <label class="form-check-label" for="fq6d"
+                    >Epithelial tissue</label
+                  >
+                </div>
+              </div>
+              <hr class="text-danger" />
+              <!-- Q7 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >7. The process by which the nucleus divides to produce two
+                  new nuclei that results in two daughter cells that are
+                  genetically identical to each other and to the parental cell
+                  from which they came.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques7"
+                  value="The process by which the nucleus divides to produce two new nuclei that results in two daughter cells that are genetically identical to each other and to the parental cell from which they came."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq7"
+                    value="Meiosis"
+                    id="fq7a"
+                  />
+                  <label class="form-check-label" for="fq7a">Meiosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq7"
+                    value="Interphase"
+                    id="fq7b"
+                  />
+                  <label class="form-check-label" for="fq7b">Interphase</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq7"
+                    value="Mitosis"
+                    id="fq7c"
+                  />
+                  <label class="form-check-label" for="fq7c">Mitosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq7"
+                    value="Cytokinesis"
+                    id="fq7d"
+                  />
+                  <label class="form-check-label" for="fq7d">Cytokinesis</label>
+                </div>
+              </div>
+              <hr class="text-danger" />
+              <!-- Q8 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >8. A type of passive transport that relies on carrier
+                  proteins for the substances to move down their concentration
+                  gradient.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques8"
+                  value="A type of passive transport that relies on carrier proteins for the substances to move down their concentration gradient."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq8"
+                    value="Active transport"
+                    id="fq8a"
+                  />
+                  <label class="form-check-label" for="fq8a"
+                    >Active transport</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq8"
+                    value="Facilitated diffusion"
+                    id="fq8b"
+                  />
+                  <label class="form-check-label" for="fq8b"
+                    >Facilitated diffusion</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq8"
+                    value="Osmosis"
+                    id="fq8c"
+                  />
+                  <label class="form-check-label" for="fq8c">Osmosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq8"
+                    value="Sodium-potassium pump"
+                    id="fq8d"
+                  />
+                  <label class="form-check-label" for="fq8d"
+                    >Sodium-potassium pump</label
+                  >
+                </div>
+              </div>
+              <hr class="text-danger" />
+              <!-- Q9 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >9. Which of the following is an example of passive transport
+                  that occurs when particles move from an area of higher
+                  concentration to an area of lower concentration?</label
+                >
+                <input
+                  type="hidden"
+                  name="ques9"
+                  value="Which of the following is an example of passive transport that occurs when particles move from an area of higher concentration to an area of lower concentration?"
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq9"
+                    value="Phagocytosis"
+                    id="fq9a"
+                  />
+                  <label class="form-check-label" for="fq9a"
+                    >Phagocytosis</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq9"
+                    value="Pinocytosis"
+                    id="fq9b"
+                  />
+                  <label class="form-check-label" for="fq9b">Pinocytosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq9"
+                    value="Diffusion"
+                    id="fq9c"
+                  />
+                  <label class="form-check-label" for="fq9c">Diffusion</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq9"
+                    value="Osmosis"
+                    id="fq9d"
+                  />
+                  <label class="form-check-label" for="fq9d">Osmosis</label>
+                </div>
+              </div>
+              <hr class="text-danger" />
+              <!-- Q10 -->
+              <div class="mb-3">
+                <label class="form-label fw-bold"
+                  >10. This process utilizes additional metabolic energy against
+                  the concentration gradient to move molecules across the
+                  membrane from a region of lower concentration to a region of
+                  higher concentration.</label
+                >
+                <input
+                  type="hidden"
+                  name="ques10"
+                  value="This process utilizes additional metabolic energy against the concentration gradient to move molecules across the membrane from a region of lower concentration to a region of higher concentration."
+                />
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq10"
+                    value="Active Transport"
+                    id="fq10a"
+                  />
+                  <label class="form-check-label" for="fq10a"
+                    >Active Transport</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq10"
+                    value="Passive Transport"
+                    id="fq10b"
+                  />
+                  <label class="form-check-label" for="fq10b"
+                    >Passive Transport</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq10"
+                    value="Osmosis"
+                    id="fq10c"
+                  />
+                  <label class="form-check-label" for="fq10c">Osmosis</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="fq10"
+                    value="Exocytosis"
+                    id="fq10d"
+                  />
+                  <label class="form-check-label" for="fq10d">Exocytosis</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" id="submitExam">
+              Submit Answers
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div
+      class="modal fade"
+      id="feedbackModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title">Course Feedback</h5>
+          </div>
+          <h5 class="text-center">We Value Your Input!</h5>
+          <p class="px-4 fst-italic">
+            Help us improve our
+            <strong>QR CODE (Cell N Card)</strong> experience. Please rate the
+            following on a scale of <strong>1 to 5</strong> (1 =
+            Poor/Disruptive, 5 = Excellent/Perfect).
+          </p>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="fw-bold">Overall Module Quality</label>
+              <div class="star-rating" data-name="quality"></div>
+            </div>
+
+            <div class="mb-3">
+              <label class="fw-bold">Technology Ease of Use</label>
+              <div class="star-rating" data-name="technology"></div>
+            </div>
+
+            <div class="mb-3">
+              <label class="fw-bold">Likelihood to Recommend</label>
+              <div class="star-rating" data-name="recommend"></div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-success" id="generateCertificate">
+              Generate Certificate
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- PDF CONTENT -->
+    <div
+      id="certificatePDF"
+      style="
+        display: none;
+        width: 800px;
+        padding: 40px;
+        font-family: Times New Roman, serif;
+      "
+    >
+      <!-- FEEDBACK SECTION -->
+      <div style="text-align: center; margin-bottom: 30px">
+        <h2 style="margin-bottom: 20px">Student Feedback Summary</h2>
+        <p>
+          <strong>Overall Module Quality:</strong> <span id="fbQuality"></span>
+        </p>
+        <p>
+          <strong>Technology Ease of Use:</strong>
+          <span id="fbTechnology"></span>
+        </p>
+        <p>
+          <strong>Likelihood to Recommend:</strong>
+          <span id="fbRecommend"></span>
+        </p>
+      </div>
+      <p style="font-style: italic">
+        Thank you! Your feedback is incredibly valuable and helps us refine this
+        module for future learners. We appreciate your role in helping us
+        improve.
+      </p>
+
+      <hr style="margin: 70px 0" />
+
+      <!-- CERTIFICATE SECTION -->
+      <div style="border: 5px solid #000; padding: 40px">
+        <h1 style="letter-spacing: 2px; text-align: center">
+          CERTIFICATE OF COMPLETION
+        </h1>
+
+        <p style="margin-top: 30px; text-align: center">
+          CERTIFICATE OF SCIENTIFIC EXPLORATION
+        </p>
+
+        <h2 style="margin: 20px 0; text-decoration: underline"></h2>
+
+        <p style="text-align: center">
+          This is to certify that
+          <span id="studentName" style="font-weight: 900"></span> has
+          successfully completed the innovative module
+        </p>
+
+        <h3 style="margin: 20px 0">
+          Cell in a Card: A Digital Journey into Cellular Biology
+        </h3>
+
+        <p>
+          <strong>Achievement Milestones:</strong>
+        </p>
+        <ul>
+          <li>Mastered the identification of eukaryotic cell organelles.</li>
+          <li>
+            Successfully utilized QR/AR technology for interactive biological
+            modeling.
+          </li>
+          <li>
+            Demonstrated an understanding of cellular functions through
+            innovative tech-integration.
+          </li>
+        </ul>
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+          "
+        >
+          <!-- LEFT SIDE -->
+          <div style="text-align: left">
+            <p id="date" style="margin-bottom: 5px"></p>
+            <p style="margin: 0">DR. GINA B. SELGA, Associate Professor</p>
+          </div>
+
+          <!-- RIGHT SIDE -->
+          <div style="text-align: right">
+            <p style="margin: 0">Pangasinan State University</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video lesson Modal -->
+    <div
+      class="modal fade"
+      id="endModal"
+      tabindex="-1"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h5 class="modal-title">Continue Learning 🎓</h5>
+          </div>
+
+          <div class="modal-body">
+            <h4 class="mb-3 fst-italic">
+              Scan the QR code or click below to access our video lessons
+            </h4>
+
+            <!-- QR Code -->
+            <img
+              src="../videos_front/Video MODULE 6.png"
+              alt="Video Lessons QR Code"
+              class="img-fluid img-thumbnail mb-3"
+            />
+
+            <!-- Button -->
+            <a
+              href="../video_lessons/module_6.html"
+              class="btn btn-primary w-100"
+            >
+              Go to Video Lessons
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      const today = new Date();
+      document.getElementById("date").textContent = today.toLocaleDateString(
+        "en-US",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        },
+      );
+    </script>
+
+    <script>
+      function starText(value) {
+        return "★".repeat(value) + "☆".repeat(5 - value);
+      }
+
+      $("#generateCertificate").click(function () {
+        const name = $('input[name="student_name"]').val();
+        const grade = $('input[name="grade_n_section"]').val();
+
+        $("#fbQuality").text(starText(ratings.quality));
+        $("#fbTechnology").text(starText(ratings.technology));
+        $("#fbRecommend").text(starText(ratings.recommend));
+
+        $("#studentName").text(name);
+        $("#studentGrade").text(grade);
+        $("#issueDate").text(new Date().toLocaleDateString());
+
+        generatePDF();
+      });
+    </script>
+
+    <script>
+      function toggleAutobio() {
+        const autobio = document.getElementById("autobio");
+        const btn = event.target;
+
+        if (autobio.style.display === "none" || autobio.style.display === "") {
+          autobio.style.display = "block";
+          btn.textContent = "Hide Autobiography";
+        } else {
+          autobio.style.display = "none";
+          btn.textContent = "Read Autobiography";
+        }
+      }
+    </script>
+    <script>
+      const ratings = {
+        quality: 0,
+        technology: 0,
+        recommend: 0,
+      };
+
+      $(".star-rating").each(function () {
+        const name = $(this).data("name");
+
+        for (let i = 1; i <= 5; i++) {
+          $(this).append(`<i class="bi bi-star" data-value="${i}"></i>`);
+        }
+
+        $(this).on("click", "i", function () {
+          const value = $(this).data("value");
+          ratings[name] = value;
+
+          $(this)
+            .parent()
+            .find("i")
+            .each(function () {
+              $(this)
+                .toggleClass(
+                  "bi-star-fill active",
+                  $(this).data("value") <= value,
+                )
+                .toggleClass("bi-star", $(this).data("value") > value);
+            });
+        });
+      });
+    </script>
+
+    <script>
+      function checkTrueFalse() {
+        const questions = {
+          tf1: {
+            answer: "false",
+            reason: "S-phase",
+          },
+          tf2: {
+            answer: "false",
+            reason: "it's very active",
+          },
+          tf3: {
+            answer: "true",
+            reason:
+              "G₁ phase is mainly responsible for cell growth and normal metabolic activities.",
+          },
+          tf4: {
+            answer: "true",
+            reason:
+              "Cytokinesis occurs after the nucleus has divided during mitosis.",
+          },
+        };
+
+        Object.keys(questions).forEach((id) => {
+          const input = document.getElementById(id);
+          const feedback = document.getElementById(id + "-feedback");
+
+          const userAnswer = input.value.trim().toLowerCase();
+
+          const normalized =
+            userAnswer === "true" || userAnswer === "t" || userAnswer === "yes"
+              ? "true"
+              : userAnswer === "false" ||
+                  userAnswer === "f" ||
+                  userAnswer === "no"
+                ? "false"
+                : "";
+
+          if (normalized === questions[id].answer) {
+            input.classList.remove("is-invalid");
+            input.classList.add("is-valid");
+            feedback.innerHTML = "✅ Correct!";
+            feedback.className = "valid-feedback d-block";
+          } else {
+            input.classList.remove("is-valid");
+            input.classList.add("is-invalid");
+            feedback.innerHTML = `❌ Incorrect. {questions[id].reason}`;
+            feedback.className = "invalid-feedback d-block";
+          }
+        });
+      }
+    </script>
+
+    <script>
+      let modalShown = false;
+
+      window.addEventListener("scroll", function () {
+        if (modalShown) return;
+
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        if (scrollTop + windowHeight >= documentHeight - 10) {
+          modalShown = true;
+
+          const modal = new bootstrap.Modal(
+            document.getElementById("endModal"),
+          );
+          modal.show();
+        }
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        /* =======================
+     MULTIPLE CHOICE DATA
+  ======================= */
+        const correctAns = {
+          ans1: "B",
+          ans2: "B",
+          ans3: "C",
+        };
+
+        const multipleQues = {
+          q1: "Which phase involves the actual copying of DNA?",
+          q2: "If a cell has 10 chromosomes at the start of G1, how many chromosomes will it have after the S-phase?",
+          q3: "The division of the cytoplasm is called:",
+        };
+
+        /* =======================
+     SHORT ANSWER DATA
+  ======================= */
+        const questions = {
+          ques1: "What is the basic unit of life?",
+          ques2: "What is a fundamental characteristic of all living cells?",
+          ques3: "Who discovered cells?",
+          ques4: "Which organelle contains genetic material?",
+          ques5:
+            "Which organelle is responsible for producing energy in the form of ATP?",
+          ques6: "Which tissue covers body surfaces and lines organs?",
+          ques7:
+            "What is the process by which a cell divides its nucleus called?",
+          ques8:
+            "Which type of transport requires help of a protein but no energy?",
+          ques9: "Name two passive transport methods.",
+          ques10:
+            "Which transport mechanism requires energy to move molecules against their concentration gradient?",
+        };
+
+        const correctAnswers = {
+          fq1: "Cell",
+          fq2: "All cells undergo complete development",
+          fq3: "Robert Hooke",
+          fq4: "Nucleus",
+          fq5: "Mitochondrion",
+          fq6: "Epithelial tissue",
+          fq7: "Mitosis",
+          fq8: "Facilitated diffusion",
+          fq9: ["Diffusion", "Osmosis"],
+          fq10: "Active Transport",
+        };
+
+        /* =======================
+     SUBMIT
+  ======================= */
+        $("#submitExam").click(function () {
+          /* =======================
+       STUDENT INFO
+    ======================= */
+          const name = $('input[name="student_name"]').val();
+          const grade_n_section = $('input[name="grade_n_section"]').val();
+
+          /* =======================
+       MULTIPLE CHOICE ANSWERS
+    ======================= */
+          const mAnswers = {
+            m1: $('input[name="q1"]:checked').val() || "No answer",
+            m2: $('input[name="q2"]:checked').val() || "No answer",
+            m3: $('input[name="q3"]:checked').val() || "No answer",
+          };
+
+          /* =======================
+       SHORT ANSWERS
+    ======================= */
+          const studentAnswers = {};
+          for (let i = 1; i <= 10; i++) {
+            studentAnswers["fq" + i] =
+              $('input[name="fq' + i + '"]:checked').val() || "No answer";
+          }
+
+          /* =======================
+       CREATE PDF
+    ======================= */
+          const doc = new window.jspdf.jsPDF("p", "mm", "a4");
+          const pageHeight = doc.internal.pageSize.height;
+          const bottomMargin = 20;
+          let y = 20;
+
+          function checkPageBreak(extra = 0) {
+            if (y + extra > pageHeight - bottomMargin) {
+              doc.addPage();
+              y = 20;
+            }
+          }
+
+          /* =======================
+       HEADER
+    ======================= */
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(12);
+          doc.text(`Name: ${name}`, 14, y);
+          doc.text(`Grade & Section: ${grade_n_section}`, 14, y + 6);
+
+          const date = new Date().toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+          doc.text(`Date: ${date}`, 140, y);
+          y += 20;
+
+          /* =======================
+       MULTIPLE CHOICE SECTION
+    ======================= */
+          doc.setFontSize(14);
+          doc.text("Multiple Choice", 14, y);
+          y += 10;
+
+          let scoreMC = 0;
+
+          for (let i = 1; i <= 3; i++) {
+            checkPageBreak(30);
+
+            const qKey = "q" + i;
+            const mKey = "m" + i;
+            const cKey = "ans" + i;
+
+            doc.setFont("helvetica", "bold");
+            doc.text(`${i}. ${multipleQues[qKey]}`, 14, y);
+            y += 6;
+
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(0, 0, 128);
+            doc.text(`Your answer: ${mAnswers[mKey]}`, 16, y);
+            y += 5;
+
+            doc.setTextColor(0, 128, 0);
+            doc.text(`Correct answer: ${correctAns[cKey]}`, 16, y);
+            y += 5;
+
+            const isCorrect = mAnswers[mKey] === correctAns[cKey];
+            if (isCorrect) scoreMC++;
+
+            doc.setFillColor(isCorrect ? 0 : 200, isCorrect ? 180 : 0, 0);
+            doc.setTextColor(255);
+            doc.rect(16, y, 40, 6, "F");
+            doc.text(isCorrect ? "Correct" : "Wrong", 18, y + 4);
+
+            doc.setTextColor(0);
+            y += 12;
+          }
+
+          doc.setFont("helvetica", "bold");
+          doc.text(`Score: ${scoreMC} / 3`, 14, y);
+          y += 15;
+
+          /* =======================
+       SHORT ANSWER SECTION
+    ======================= */
+          doc.setFontSize(14);
+          doc.text("POST TEST EXAM", 14, y);
+          y += 10;
+
+          let scoreSA = 0;
+
+          for (let i = 1; i <= 10; i++) {
+            checkPageBreak(30);
+
+            const qKey = "fq" + i;
+
+            doc.setFont("helvetica", "bold");
+            doc.text(`${i}. ${questions["ques" + i]}`, 14, y);
+            y += 6;
+
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(0, 0, 128);
+            doc.text(`Your answer: ${studentAnswers[qKey]}`, 16, y);
+            y += 5;
+
+            const correctText = Array.isArray(correctAnswers[qKey])
+              ? correctAnswers[qKey].join(" or ")
+              : correctAnswers[qKey];
+
+            doc.setTextColor(0, 128, 0);
+            doc.text(`Correct answer: ${correctText}`, 16, y);
+            y += 5;
+
+            const isCorrect = Array.isArray(correctAnswers[qKey])
+              ? correctAnswers[qKey].includes(studentAnswers[qKey])
+              : studentAnswers[qKey] === correctAnswers[qKey];
+
+            if (isCorrect) scoreSA++;
+
+            doc.setFillColor(isCorrect ? 0 : 200, isCorrect ? 180 : 0, 0);
+            doc.setTextColor(255);
+            doc.rect(16, y, 40, 6, "F");
+            doc.text(isCorrect ? "Correct" : "Wrong", 18, y + 4);
+
+            doc.setTextColor(0);
+            y += 12;
+          }
+
+          doc.setFont("helvetica", "bold");
+          doc.text(`Score: ${scoreSA} / 10`, 14, y);
+
+          /* =======================
+       SAVE PDF
+    ======================= */
+          doc.save("Module 6 - Exam Result.pdf");
+          $("#examModal").modal("hide");
+
+          // OPEN FEEDBACK MODAL
+          setTimeout(() => {
+            $("#feedbackModal").modal("show");
+          }, 500);
+        });
+      });
+    </script>
+
+    <script>
+      function generatePDF() {
+        const element = document.getElementById("certificatePDF");
+        element.style.display = "block";
+
+        html2pdf()
+          .set({
+            margin: 0,
+            filename: "Certificate & Feedback.pdf",
+            image: { type: "jpeg", quality: 1 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          })
+          .from(element)
+          .save()
+          .then(() => {
+            element.style.display = "none";
+            $("#feedbackModal").modal("hide");
+          });
+      }
+    </script>
+  </body>
+</html>
+
+
+
